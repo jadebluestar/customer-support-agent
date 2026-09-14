@@ -1,0 +1,29 @@
+{
+  "seed": 42,
+  "target_total": 200,
+  "actual_total": 200,
+  "strata": {
+    "normal": 80,
+    "short": 30,
+    "noisy": 30,
+    "ambiguous": 20,
+    "multi_intent": 20,
+    "low_context": 20
+  },
+  "stratum_counts": {
+    "normal": 100,
+    "short": 30,
+    "noisy": 30,
+    "multi_intent": 20,
+    "low_context": 20
+  },
+  "cluster_hint_coverage": 200,
+  "source": "data/amazonhelp_conversations.csv",
+  "notes": [
+    "Sampled from conversation openings (turn_index=0), English-only.",
+    "Each example carries conversation_id for leakage-safe splitting.",
+    "cluster_hint is a hint, not ground truth \u2014 labeler decides intent.",
+    "'ambiguous' stratum drawn from the 5 smallest clusters as a",
+    "  proxy for centroid-boundary uncertainty, not from the general pool."
+  ]
+}

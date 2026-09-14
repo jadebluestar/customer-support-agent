@@ -1,0 +1,26 @@
+conversation_id,tweet_id,text,cluster_hint,stratum,intent,is_ambiguous,is_multi_intent,notes
+2747218,2747218,"My first prime arrival of the holiday season showed up completely broken, not the holiday cheer I was hoping to feel :(",0,normal,wrong_or_damaged_item,N,N,
+1131333,1131333,"Purchased OnePlus5 phone. It had special offers mentioned for Kindle, Clear Trip &amp;AmazonPay balance. I have still not received any",0,normal,general_complaint,Y,N,
+2589155,2589155,are all LED bulbs/lamps sold on amazon BIS approved?,0,normal,availability_or_eligibility_query,Y,N,[relabeled from customer_service_quality: product certification/policy question]
+2689326,2689326,"hello, not sure if this falls under your remit but the PSVR Black Friday bundle available on your site says it’s not available but you can order it and it will send when available. is there any way you can tell when it will be available?",0,normal,availability_or_eligibility_query,Y,N,[relabeled from device_or_app_technical: product-availability timing question]
+2608097,2608097,Why would stop working on our new tv? #anyhelp #amazonvideo #amazon #samsung,0,normal,device_or_app_technical,Y,N,
+2948199,2948199,can deliver on 11/14 and 11/17 and 11/22 but suddenly on 11/28 the address is undeliverable.,0,normal,delivery_delay_or_missing,Y,N,
+113745,113745,can you explain what delayed due to 'external factors' actually mean and how you expect people to contact you?+,0,normal,order_status_or_tracking,N,N,
+397293,397293,The worst &amp; btr exp with AmazonIn Cust Serv. Brght a mobl honor8 frm amazonIn. found it faulty.,0,normal,website_or_app_ux,Y,N,
+1236251,1236251,"I ordered a Fitbit Flex 2 Tracker, the parcel was unopened but the Fitbit box inside had seal broken and items missing. Can DM me?",0,normal,wrong_or_damaged_item,N,N,
+404624,404624,when can I pre order a physical copy of a game? It comes out on Friday and only digital is available. Thanks guys,0,normal,availability_or_eligibility_query,N,N,[relabeled from general_complaint: format/pre-order availability question]
+2378510,2378510,Cancel this product before one week.. no one come to collect.. worst experience get from Amazon #AmazonIndia,0,normal,return_or_refund,N,N,
+1500743,1500743,I didn’t receive a Permanent weapon unlock token or 2xp for WW2 and I preordered from Amazon?,0,normal,wrong_or_damaged_item,Y,N,"[relabeled from lost_or_stolen_package: digital preorder bonus, not a physical package]"
+2539651,2539651,Seriously #packagingoverkill,0,short,general_complaint,N,N,
+1508615,1508615,. packaging reminds me of 🤔,0,short,general_complaint,Y,N,
+836188,836188,Where do I buy this?,0,short,availability_or_eligibility_query,N,N,[relabeled from general_complaint: where-to-buy availability question]
+1166657,1166657,you guys should seriously consider debarring sellers charging prices more than mrp. Bought a book for 399 having mrp only 300 🤕,0,noisy,payment_or_gift_card_issue,N,N,
+2059479,2059479,OMG I ORDERED A CHARGER FOR MY PHONE LAST WEEK ON THURSDAY AND I STILL HAVENT GOTTEN IT,0,multi_intent,delivery_delay_or_missing,N,N,
+578414,578414,"I accidentally ordered 2 of the same item, but cancelled one straight away, hopefully I’ll only get charged for the one",0,multi_intent,payment_or_gift_card_issue,N,N,
+224834,224834,#patheticservicebyamazon it's more thn 1month &amp; numerous follow up HV not received my order nor u guys are refunding.. loyalty lost,0,multi_intent,delivery_delay_or_missing,N,N,
+2812778,2812778,Amazon Logistics strikes again!,0,low_context,delivery_delay_or_missing,Y,N,
+1113580,1113580,I m going to file a case against you guys.,0,low_context,general_complaint,Y,N,
+360684,360684,Hey think you’ve overdone it with the packaging again....👍,0,low_context,general_complaint,Y,N,
+311890,311890,"even after customer gives receipt of courier which is as clear as it gets, your customer care tells that it is not clear. #fraud",19,normal,customer_service_quality,Y,N,
+1372750,1372750,Dear Are you waiting for me to go legal?,9,normal,general_complaint,N,N,
+179935,179935,Package is in same city.called customer care two times. No use! dumb service. Please reply.,19,normal,delivery_delay_or_missing,N,N,"[relabeled from lost_or_stolen_package: package stuck, not lost]"

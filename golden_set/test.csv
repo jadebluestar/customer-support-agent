@@ -1,0 +1,26 @@
+conversation_id,tweet_id,text,cluster_hint,stratum,intent,is_ambiguous,is_multi_intent,notes
+910739,910739,"hello, can I add items from other regions to my US wish list?",0,normal,availability_or_eligibility_query,N,N,[relabeled from how_to_or_feature_question: cross-region purchasing eligibility]
+317271,317271,"It's so hard to deal with #Amazon.com please understand customer's value, please stop to deal with #AmazonIndia it's bad experience ever",0,normal,general_complaint,N,N,
+1676496,1676496,is a terrible service. I will forever make sure everyone I know never uses it,0,normal,general_complaint,N,N,
+2907814,2907814,"Hi, how do I chat online to someone regarding an order? I can't find it on amazon uk.",0,normal,customer_service_quality,N,N,
+1732086,1732086,"What's with #PackageDelivery by #AmazonLogistics? Lost 1, delayed 1! #strange . #AmazonPrime guarantee be damned!",0,normal,delivery_delay_or_missing,Y,N,[relabeled from order_status_or_tracking: describes lost+delayed packages; flagged ambiguous/multi-issue]
+834465,834465,When is Mr. ROBOT season 3 episode 1 going to be available?!,0,normal,availability_or_eligibility_query,N,N,[relabeled from subscription_or_membership: content-release timing question]
+268711,268711,"so far your streaming service is fucking garbage. Connections fine during your fucking commercials, trash during game. Wtf u doing?",0,normal,general_complaint,N,N,
+415106,415106,try to hire people who can drive. Your driver broke our mailbox! Please fix this ASAP! #Fail #,0,normal,general_complaint,N,N,
+2339059,2339059,Yes. Always have. Been reviewing for many years. Now all my reviews have been removed. Prime member with verified purchases.,0,normal,general_complaint,N,N,
+269152,269152,The audio on my #ThursdayNightFootball stream is terrible.,0,normal,device_or_app_technical,N,N,
+382290,382290,Ordered BGR 34 Blood glucose metabolisor and u sent BGR 34 carbohydrate metabolisor. Pl exchange.,0,normal,wrong_or_damaged_item,N,N,
+483110,483110,Do you deliver to Turkey?,0,short,availability_or_eligibility_query,Y,N,"[relabeled from delivery_delay_or_missing: shipping-eligibility question, not an existing order]"
+373966,373966,. when u sign up for #subscribeandsave and your stuff NEVER COMES. 😡 Wife.Not.Happy 🙈🙉,0,noisy,general_complaint,N,N,
+1574304,1574304,Alexa has problem in finding artists whose name has a Dr. in it for music. Any idea why? Ex Dr. Rajkumar 😬,0,noisy,device_or_app_technical,Y,N,
+1350240,1350240,I have a locker to the right of this pic. Rubbish way to leave a parcel😡,0,noisy,delivery_delay_or_missing,N,N,
+2591309,2591309,this was totally unnecessary packaging. Ever heard of a mailing envelop📬? Not even fragile!,0,noisy,general_complaint,N,N,
+1266464,1266464,In shock &amp; trauma! Fake order processed and charged &amp; Payment processed from closed credit card without owners consent,0,multi_intent,payment_or_gift_card_issue,N,N,
+616999,616999,Really disappointed with ordered 2 things on prime on the 20th and now they are saying I might not get them till the end of the week!! #notimpressed #CustomerExperience #sucks #whatsthepointwithprime,0,multi_intent,delivery_delay_or_missing,N,N,
+2883416,2883416,"- Beware of AmazonUK - fraud alert - they take your order but then try to get you to cancel. Something wrong with Amazon UK - must be fraud, otherwise they cannot be trusted. AVOID",0,multi_intent,customer_service_quality,N,N,
+2611559,2611559,sir it is utter disappointment to see your pathetic services that you send another item that is not ordered by us and send our order i.e 2 tablets to someone else and no actions have been taken yet,0,multi_intent,wrong_or_damaged_item,N,N,
+797510,797510,I am never pre-ordering anything from ever again. Fuck that.,0,low_context,general_complaint,Y,N,"[relabeled from order_status_or_tracking: pure rant, zero status content]"
+2897510,2897510,my kindle not working is the last f*cking straw.,0,low_context,device_or_app_technical,Y,N,
+2922493,2922493,Very disappointed with - so far I have 3 orders that have not been delivered as promised. Current status is unexpected delay with no further explanation,23,normal,delivery_delay_or_missing,Y,N,[relabeled from order_status_or_tracking: 'unexpected delay' stated explicitly]
+2580480,2580480,The Ultra Sun and Ultra Moon Steelbook Dual Pack I ordered from you all hasn't shipped yet. I want to keep trusting you but with the experiences I've had with pre-orders from you this year is a bit too much.,23,normal,order_status_or_tracking,N,N,
+1325780,1325780,"4 calls, 7 customer care re-some-abruptly-end-call-ps, 3 conversations thru the website, Issue still being unresolved. *sobs* :(",19,normal,customer_service_quality,N,N,
