@@ -34,7 +34,5 @@ dist/
 # Generated project artifacts
 data/*
 !data/.gitkeep
-reports/*
-!reports/.gitkeep
 reports/llm_cache/
 !reports/llm_cache/.gitkeep

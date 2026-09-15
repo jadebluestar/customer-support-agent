@@ -1,6 +1,11 @@
 """
 Deterministic escalation policy. Ordered rules; first match wins.
 No LLM call — this must be inspectable and cheap.
+
+Sentinel for generation_result:
+  "PENDING"  -> provisional pre-generation pass (skip generation checks)
+  None       -> generation was attempted and failed -> escalate
+  GeneratedReply -> normal post-generation evaluation
 """
 import sys
 from pathlib import Path
@@ -19,17 +24,18 @@ from src.thresholds import (
 OUT_OF_SCOPE = {"not_support_related", "insufficient_context"}
 
 
-def should_escalate(intent_result, retrieval_hits, generation_result=None):
+def should_escalate(intent_result, retrieval_hits, generation_result="PENDING"):
     """
-    intent_result:   {"intent": str, "confidence": float, "status": str} or None
-    retrieval_hits:  list[RetrievedCase]
-    generation_result: GeneratedReply | None
+    intent_result:     {"intent": str, "confidence": float, "status": str} or None
+    retrieval_hits:    list[RetrievedCase]
+    generation_result: "PENDING" | GeneratedReply | None
 
     Returns (escalate: bool, reason: str).
     """
     # 1. Classifier did not succeed — cannot trust any downstream decision.
     if intent_result is None or intent_result.get("status") != "success":
-        return True, f"classifier_error:{intent_result.get('status') if intent_result else 'none'}"
+        st = intent_result.get("status") if intent_result else "none"
+        return True, f"classifier_error:{st}"
 
     intent = intent_result["intent"]
 
@@ -54,8 +60,12 @@ def should_escalate(intent_result, retrieval_hits, generation_result=None):
     if top_score < RETRIEVAL_THRESHOLD:
         return True, f"weak_evidence:{top_score:.2f}"
 
-    # 7. Generator said escalate, or flagged unsupported claims.
-    if generation_result is not None:
+    # 7. Generation was attempted and failed outright. Cannot handle.
+    if generation_result is None:
+        return True, "generator_failed"
+
+    # 8. Generator said escalate or flagged unsupported claims.
+    if generation_result != "PENDING":
         if generation_result.decision == "escalate":
             return True, f"generator_escalated:{generation_result.reason}"
         if generation_result.unsupported_claims:

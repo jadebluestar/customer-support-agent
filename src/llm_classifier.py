@@ -11,7 +11,7 @@ import json
 import os
 import time
 from dataclasses import dataclass, field
-
+import random
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -229,6 +229,27 @@ def _call_raw(prompt: str, max_tokens: int = 512) -> tuple[dict | None, LLMRespo
     _cache_put(key, {"status": "success", "payload": payload})
     return payload, LLMResponse(status="success")
 
+RETRYABLE = {"rate_limited", "server_error", "network_error"}
+
+
+def _call_raw_with_backoff(prompt, max_tokens=512, max_attempts=3):
+    """
+    Wrap _call_raw with exponential backoff for transient errors.
+    auth_error, bad_request, and invalid_output are not retried.
+    """
+    last_resp = None
+    for attempt in range(max_attempts):
+        payload, resp = _call_raw(prompt, max_tokens=max_tokens)
+        if resp.ok:
+            return payload, resp
+        last_resp = resp
+        if resp.status not in RETRYABLE:
+            return payload, resp
+        if attempt == max_attempts - 1:
+            break
+        delay = (2 ** attempt) + random.uniform(0, 1)   # 1s, 2s, 4s + jitter
+        time.sleep(delay)
+    return None, last_resp
 
 # --- Public classifier --------------------------------------------------
 
@@ -245,17 +266,18 @@ def classify(text: str) -> tuple[dict | None, LLMResponse]:
     """
     prompt = PROMPT_TEMPLATE.format(defs=DEFS, examples=FEW_SHOT, text=text)
 
-    payload, resp = _call_raw(prompt)
+    payload, resp = _call_raw_with_backoff(prompt)
     if resp.ok and payload and payload.get("intent") in ALLOWED:
         return payload, resp
 
     # One strict retry only if the failure was a bad label / parse issue.
     if resp.status in {"invalid_output", "success"}:
-        strict_prompt = prompt + (
-            "\n\nYour previous answer was invalid or used a label not in the "
-            "allowed list. Return only valid JSON with an allowed intent."
+        strict_prompt = (
+            prompt
+            + "\n\nYour previous answer was invalid or used a label not in the "
+              "allowed list. Return only valid JSON with an allowed intent."
         )
-        payload2, resp2 = _call_raw(strict_prompt)
+        payload2, resp2 = _call_raw_with_backoff(strict_prompt)
         if resp2.ok and payload2 and payload2.get("intent") in ALLOWED:
             return payload2, resp2
         return None, resp2

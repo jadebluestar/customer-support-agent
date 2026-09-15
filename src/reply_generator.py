@@ -12,7 +12,7 @@ if __package__ in {None, ""}:
     if str(root) not in sys.path:
         sys.path.insert(0, str(root))
 
-from src.llm_classifier import _call_raw, LLMResponse
+from src.llm_classifier import _call_raw_with_backoff, LLMResponse
 
 
 SYSTEM = (
@@ -70,7 +70,7 @@ def generate(message: str, intent: str, hits) -> tuple[GeneratedReply | None, LL
     evidence = _format_evidence(hits) if hits else "(no evidence retrieved)"
     prompt = PROMPT.format(intent=intent, message=message, evidence=evidence)
 
-    payload, resp = _call_raw(prompt, max_tokens=512)
+    payload, resp = _call_raw_with_backoff(prompt, max_tokens=512)
     if not resp.ok or payload is None:
         return None, resp
 

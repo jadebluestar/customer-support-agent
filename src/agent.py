@@ -58,7 +58,6 @@ class SupportAgent:
 
         # 5. Final escalation (generator may override the provisional decision)
         escalate, reason = should_escalate(intent_result, hits, gen)
-
         return {
             "intent": intent_result["intent"],
             "intent_confidence": intent_result["confidence"],

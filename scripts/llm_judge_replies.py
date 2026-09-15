@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from src.llm_classifier import _call_raw
+from src.llm_classifier import _call_raw_with_backoff
 from src.project_paths import repo_path
 
 
@@ -74,7 +74,7 @@ def main():
             decision=ex["decision"],
             reply=ex.get("reply") or "(escalated, no reply)",
         )
-        payload, resp = _call_raw(prompt, max_tokens=512)
+        payload, resp = _call_raw_with_backoff(prompt, max_tokens=512)
         if not resp.ok or payload is None:
             print(f"[{ex['example_id']}] judge failed: {resp.status}")
             continue
