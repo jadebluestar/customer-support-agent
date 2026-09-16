@@ -1,8 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.4.0+cpu
+sentence-transformers==2.7.0
+transformers==4.44.2
+openai>=1.30,<2.0
+python-dotenv
 pandas
 numpy
 scikit-learn
-openai
-python-dotenv
-sentence-transformers
 kagglehub
 langdetect
