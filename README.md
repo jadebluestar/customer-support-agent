@@ -6,6 +6,7 @@ resolutions, drafts a grounded reply, or escalates to a human using a
 deterministic, inspectable policy.
 
 Plain Python. No LangChain, no LlamaIndex, no vector DB, no agent loop.
+<img width="960" height="540" alt="image" src="https://github.com/user-attachments/assets/5066e09e-afe8-4036-b442-3e5a5b4962dd" />
 
 ---
 
